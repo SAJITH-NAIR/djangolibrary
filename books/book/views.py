@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.views.generic import CreateView
 from django.views.generic.list import ListView
+from django.views.generic import TemplateView
 from .models import Choice
 
 
@@ -15,3 +16,6 @@ class Bookview(CreateView):
 class Booklist(ListView):
     model = Choice
     template_name = 'book/media2.html'
+
+class AboutView(TemplateView):
+    template_name = "index.html"
