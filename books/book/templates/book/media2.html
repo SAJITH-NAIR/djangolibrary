@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<body>
+<table border="1">
+
+    <tr>
+        <th> NAME </th>
+        <th> PRICE </th>
+    </tr>
+    {% for c in object_list %}
+     <tr>
+         <td>{{ c.name }}</td>
+         <td>{{ c.price }}</td>
+     </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
