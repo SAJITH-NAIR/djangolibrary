@@ -11,14 +11,45 @@
     <tr>
         <th> NAME </th>
         <th> PRICE </th>
+        <th> PAGES </th>
+        <th> AUTHOR </th>
+        <th> Edit</th>
+        <th> Delete</th>
     </tr>
-    {% for c in object_list %}
+    {% for c in books %}
      <tr>
          <td>{{ c.name }}</td>
          <td>{{ c.price }}</td>
+         <td>{{ c.pages }}</td>
+         <td>{{ c.author }}</td>
+         <td><a href="{% url 'bookupdate' c.pk %}">Edit</a> </td>
+
+         <td><a href="{% url 'bookdelete' c.pk %}">Delete</a> </td>
      </tr>
     {% endfor %}
 </table>
 
+    <td><a href="{% url 'bookadd' %} ">ADD</a> </td>
+    <br>
+    <td><a href="{% url 'booksort' %} ">Sort by price</a> </td>
+    <br>
+    <td><a href="{% url 'booksort2' %} ">Sort by pages</a> </td>
+
+
+{{books }}
+
+
+ {% if is_paginated %}
+  <ul class="pagination">
+
+      {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}">next</a></li>
+      {% endif %}
+  </ul>
+{% endif %}
+ <form action="">
+  SEARCH NAME: <input type="text" name="data"><br>
+  <input type="submit" value="SEARCH NOW">
+</form>
 </body>
 </html>
